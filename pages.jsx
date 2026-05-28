@@ -39,9 +39,10 @@ function EpisodesPage() {
     { ep:'EP 01', title:'Formación HVAC en Argentina: 30 años construyendo el oficio', guest:'Guillermo Andrade — IARAA', date:'Temporada 1 · 2026', tag:'Educación', featured:true,
       desc:'El Director del Instituto Argentino de Refrigeración y Aire Acondicionado comparte la historia, metodología y desafíos de formar técnicos desde 1991.',
       img:'assets/guests/guillermo-andrade.png' },
-    { ep:'EP 02', title:'Refrigerantes del Futuro: Transición y Desafíos', guest:'Por Confirmar', date:'Próximamente', tag:'Técnico' },
-    { ep:'EP 03', title:'Digitalización del Servicio Técnico HVAC', guest:'Por Confirmar', date:'Próximamente', tag:'Tecnología' },
-    { ep:'EP 04', title:'VRF y Sistemas Multi-Split: Aplicaciones en LATAM', guest:'Por Confirmar', date:'Próximamente', tag:'Sistemas' },
+    { ep:'EP 02', title:'Compresores inverter: el corazón del sistema moderno', guest:'Embraco — Empresa Brasileña de Motocompresores (Nidec)', date:'T1 · 2026', tag:'Tecnología' },
+    { ep:'EP 03', title:'Sanhua: la empresa china que está en todos los sistemas', guest:'Marcelo Lima · Sales Manager LATAM, Sanhua International', date:'T1 · 2026', tag:'Componentes' },
+    { ep:'EP 04', title:'Fugas de refrigerante: cómo detectarlas y eliminarlas de verdad', guest:'Luca Baranzini · Director, K11 America', date:'T1 · 2026', tag:'Mantenimiento' },
+    { ep:'EP 05', title:'COEL: 70 años controlando la temperatura en toda América', guest:'Heraldo Bregagnollo · Director Comercial, COEL', date:'T1 · 2026', tag:'Automatización' },
   ];
   const filtered = teasers.filter(t =>
     !q || t.title.toLowerCase().includes(q.toLowerCase()) || t.tag.toLowerCase().includes(q.toLowerCase())
@@ -66,7 +67,7 @@ function EpisodesPage() {
           />
         </div>
 
-        {/* EP 01 live banner */}
+        {/* Live banner */}
         <div style={{
           padding:'20px 28px', marginBottom:'40px',
           border:'1px solid rgba(42,191,191,0.2)', borderRadius:'6px',
@@ -75,7 +76,7 @@ function EpisodesPage() {
         }}>
           <div style={{ width:'8px', height:'8px', borderRadius:'50%', background:'#2ABFBF', animation:'pulseRing 2s infinite', flexShrink:0 }}/>
           <div style={{ fontSize:'13px', color:'#a8c8db' }}>
-            <strong style={{ color:'#eef5fa', fontWeight:600 }}>Primer episodio confirmado</strong> · Guillermo Andrade, Director del IARAA · Temporada 1 · 2026
+            <strong style={{ color:'#eef5fa', fontWeight:600 }}>5 episodios confirmados</strong> · Temporada 1 · 2026 · Guillermo Andrade, Embraco, Sanhua, K11, COEL
           </div>
         </div>
 
