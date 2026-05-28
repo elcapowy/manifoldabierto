@@ -68,16 +68,16 @@ function HeroSection({ setPage }) {
         {/* Main title */}
         <h1 style={{
           fontFamily:"'Syne',sans-serif", fontWeight:800,
-          fontSize:'clamp(36px,9vw,112px)', color:'#eef5fa',
+          fontSize:'clamp(36px,8vw,96px)', color:'#eef5fa',
           lineHeight:0.92, letterSpacing:'-0.03em', margin:'0 0 4px',
-          wordBreak:'break-word',
+          whiteSpace:'nowrap',
         }}>MANIFOLD</h1>
         <h1 style={{
           fontFamily:"'Syne',sans-serif", fontWeight:800,
-          fontSize:'clamp(36px,9vw,112px)',
+          fontSize:'clamp(36px,8vw,96px)',
           color:'transparent', WebkitTextStroke:'1.5px #2ABFBF',
           lineHeight:0.92, letterSpacing:'-0.03em', margin:'0 0 36px',
-          wordBreak:'break-word',
+          whiteSpace:'nowrap',
         }}>ABIERTO</h1>
 
         {/* Waveform */}
