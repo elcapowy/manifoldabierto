@@ -7,7 +7,7 @@ function HeroSection({ setPage }) {
       minHeight:'100vh', display:'flex', flexDirection:'column',
       alignItems:'center', justifyContent:'center',
       position:'relative', padding:'100px clamp(16px,5vw,80px) 80px',
-      overflow:'hidden',
+      overflow:'hidden', boxSizing:'border-box', width:'100%',
     }}>
       {/* Video background */}
       <video autoPlay muted loop playsInline style={{
@@ -39,11 +39,11 @@ function HeroSection({ setPage }) {
         <div style={{ width:'1px', height:'40px', background:'rgba(42,191,191,0.5)', marginLeft:'auto' }}/>
       </div>
 
-      <div style={{ position:'relative', zIndex:3, textAlign:'center', maxWidth:'860px', animation:'fadeUp 0.8s ease both' }}>
+      <div style={{ position:'relative', zIndex:3, textAlign:'center', maxWidth:'860px', width:'100%', animation:'fadeUp 0.8s ease both' }}>
         {/* Logo */}
-        <div style={{ marginBottom:'28px' }}>
+        <div style={{ marginBottom:'20px' }}>
           <img src="assets/logo.png" alt="Manifold Abierto" style={{
-            width:'110px', height:'110px', objectFit:'cover', borderRadius:'22px',
+            width:'clamp(72px,18vw,110px)', height:'clamp(72px,18vw,110px)', objectFit:'cover', borderRadius:'22px',
             boxShadow:'0 0 80px rgba(42,191,191,0.22), 0 0 160px rgba(42,191,191,0.08)',
           }}/>
         </div>
@@ -52,10 +52,11 @@ function HeroSection({ setPage }) {
         <div style={{
           display:'inline-flex', alignItems:'center', gap:'10px',
           color:'#2ABFBF', fontFamily:"'Space Mono',monospace",
-          fontSize:'10px', letterSpacing:'0.2em', textTransform:'uppercase',
-          padding:'7px 18px', border:'1px solid rgba(42,191,191,0.22)',
+          fontSize:'9px', letterSpacing:'0.12em', textTransform:'uppercase',
+          padding:'7px 14px', border:'1px solid rgba(42,191,191,0.22)',
           borderRadius:'20px', marginBottom:'28px',
           background:'rgba(42,191,191,0.04)',
+          textAlign:'center', maxWidth:'90vw',
         }}>
           <span style={{
             width:'7px', height:'7px', borderRadius:'50%', background:'#2ABFBF',
@@ -67,14 +68,16 @@ function HeroSection({ setPage }) {
         {/* Main title */}
         <h1 style={{
           fontFamily:"'Syne',sans-serif", fontWeight:800,
-          fontSize:'clamp(52px,10vw,112px)', color:'#eef5fa',
+          fontSize:'clamp(36px,9vw,112px)', color:'#eef5fa',
           lineHeight:0.92, letterSpacing:'-0.03em', margin:'0 0 4px',
+          wordBreak:'break-word',
         }}>MANIFOLD</h1>
         <h1 style={{
           fontFamily:"'Syne',sans-serif", fontWeight:800,
-          fontSize:'clamp(52px,10vw,112px)',
+          fontSize:'clamp(36px,9vw,112px)',
           color:'transparent', WebkitTextStroke:'1.5px #2ABFBF',
           lineHeight:0.92, letterSpacing:'-0.03em', margin:'0 0 36px',
+          wordBreak:'break-word',
         }}>ABIERTO</h1>
 
         {/* Waveform */}
@@ -84,8 +87,8 @@ function HeroSection({ setPage }) {
 
         {/* Tagline */}
         <p style={{
-          color:'#a8c8db', fontSize:'clamp(16px,2vw,20px)', lineHeight:1.7,
-          maxWidth:'580px', margin:'0 auto 44px',
+          color:'#a8c8db', fontSize:'clamp(14px,3.5vw,18px)', lineHeight:1.65,
+          maxWidth:'580px', margin:'0 auto 36px', padding:'0 8px',
         }}>
           El podcast de referencia para <strong style={{color:'#eef5fa', fontWeight:600}}>profesionales HVAC</strong> en América Latina. Conversaciones con los referentes del mercado.
         </p>
@@ -231,12 +234,22 @@ function NewsletterSection() {
   const [email, setEmail] = useState('');
   const [done, setDone] = useState(false);
   const [err, setErr] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     if(!email || !email.includes('@')){ setErr('Ingresá un email válido'); return; }
-    window.location.href = `mailto:mabiertolatam@gmail.com?subject=Suscripción%20Newsletter%20Manifold%20Abierto&body=Nueva%20suscripción%20al%20newsletter%3A%0A%0AEmail%3A%20${encodeURIComponent(email)}%0A%0A---%0AEnviado%20desde%20manifoldabierto.com`;
-    setDone(true); setErr('');
+    setLoading(true);
+    try {
+      const res = await fetch('https://formspree.io/f/xgoqdkng', {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json', 'Accept':'application/json' },
+        body: JSON.stringify({ email, tipo:'Newsletter Manifold Abierto', _subject:'Nueva suscripción al newsletter' }),
+      });
+      if(res.ok){ setDone(true); setErr(''); }
+      else { setErr('Error al enviar. Intentá de nuevo.'); }
+    } catch(ex) { setErr('Error de conexión. Intentá de nuevo.'); }
+    setLoading(false);
   };
 
   return (
@@ -268,7 +281,7 @@ function NewsletterSection() {
                 onFocus={e=>e.target.style.borderColor='#2ABFBF'}
                 onBlur={e=>e.target.style.borderColor=err?'#F07A2A':'rgba(42,191,191,0.2)'}
               />
-              <Button variant="orange" size="lg">Suscribirme</Button>
+              <Button variant="orange" size="lg" style={loading?{opacity:0.7}:{}}>{loading ? 'Enviando...' : 'Suscribirme'}</Button>
             </form>
             {err && <div style={{ color:'#F07A2A', fontSize:'12px', marginTop:'8px' }}>{err}</div>}
           </>

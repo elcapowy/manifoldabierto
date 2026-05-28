@@ -253,7 +253,7 @@ function GuestsPage() {
         <div style={{ padding:'40px 48px', textAlign:'center', border:'1px solid rgba(240,122,42,0.18)', borderRadius:'8px', background:'rgba(240,122,42,0.03)' }}>
           <div style={{ fontFamily:"'Syne',sans-serif", fontWeight:800, fontSize:'22px', marginBottom:'10px' }}>¿Sos un referente del sector HVAC?</div>
           <p style={{ color:'#a8c8db', fontSize:'14px', margin:'0 auto 22px', maxWidth:'440px', lineHeight:1.7 }}>Compartí tu experiencia con miles de profesionales de LATAM. Escribinos y sé parte de la próxima temporada.</p>
-          <Button variant="orange" href="mailto:mabiertolatam@gmail.com?subject=Quiero%20ser%20invitado%20en%20Manifold%20Abierto&body=Hola%20equipo%20de%20Manifold%20Abierto%2C%0A%0AMe%20gustar%C3%ADa%20postularme%20como%20referente%20del%20sector%20HVAC%20para%20participar%20en%20el%20programa.%0A%0ANombre%3A%20%0AEmpresa%2FOrganizaci%C3%B3n%3A%20%0APa%C3%ADs%3A%20%0AEspecialidad%3A%20%0A%0ASaludos">Quiero ser Invitado</Button>
+          <Button variant="orange" href="mailto:manifold.abierto@gmail.com?subject=Quiero%20ser%20invitado%20en%20Manifold%20Abierto&body=Hola%20equipo%20de%20Manifold%20Abierto%2C%0A%0AMe%20gustar%C3%ADa%20postularme%20como%20referente%20del%20sector%20HVAC%20para%20participar%20en%20el%20programa.%0A%0ANombre%3A%20%0AEmpresa%2FOrganizaci%C3%B3n%3A%20%0APa%C3%ADs%3A%20%0AEspecialidad%3A%20%0A%0ASaludos">Quiero ser Invitado</Button>
         </div>
       </div>
       <style>{`@media(max-width:640px){.guest-featured{grid-template-columns:1fr!important}}`}</style>
@@ -448,7 +448,24 @@ function ResourcesPage() {
 function SponsorsPage() {
   const [form, setForm] = useState({ nombre:'', empresa:'', email:'', mensaje:'' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState('');
   const set = (k,v) => setForm(f=>({...f,[k]:v}));
+
+  const enviar = async () => {
+    if(!form.email || !form.nombre){ setErr('Completá nombre y email.'); return; }
+    setLoading(true);
+    try {
+      const res = await fetch('https://formspree.io/f/xgoqdkng', {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json', 'Accept':'application/json' },
+        body: JSON.stringify({ ...form, tipo:'Consulta Sponsor Manifold Abierto', _subject:`Consulta Sponsor: ${form.empresa}` }),
+      });
+      if(res.ok){ setSent(true); setErr(''); }
+      else { setErr('Error al enviar. Intentá de nuevo.'); }
+    } catch(ex) { setErr('Error de conexión.'); }
+    setLoading(false);
+  };
 
 
 
@@ -542,8 +559,9 @@ function SponsorsPage() {
                 onFocus={e=>e.target.style.borderColor='#2ABFBF'}
                 onBlur={e=>e.target.style.borderColor='rgba(42,191,191,0.18)'}
               />
-              <div style={{ gridColumn:'1/-1' }}>
-                <Button variant="orange" size="lg" onClick={()=>{ setSent(true); window.location.href=`mailto:mabiertolatam@gmail.com?subject=Consulta%20Sponsor%20Manifold%20Abierto&body=Nombre%3A%20${encodeURIComponent(form.nombre)}%0AEmpresa%3A%20${encodeURIComponent(form.empresa)}%0AEmail%3A%20${encodeURIComponent(form.email)}%0A%0AMensaje%3A%20${encodeURIComponent(form.mensaje)}`; }}>Enviar Consulta</Button>
+              <div style={{ gridColumn:'1/-1', display:'flex', flexDirection:'column', gap:'8px' }}>
+                <Button variant="orange" size="lg" onClick={enviar}>{loading ? 'Enviando...' : 'Enviar Consulta'}</Button>
+                {err && <div style={{ color:'#F07A2A', fontSize:'12px', fontFamily:"'Space Mono',monospace" }}>{err}</div>}
               </div>
             </div>
           ) : (

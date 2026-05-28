@@ -253,10 +253,10 @@ function Footer({ setPage }) {
           <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'10px', color:'#5a8aa8' }}>© 2026 Manifold Abierto — Todos los derechos reservados</div>
           <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'10px', color:'#5a8aa8', display:'flex', gap:'16px', flexWrap:'wrap', alignItems:'center' }}>
             <span>Conducido por <span style={{color:'#a8c8db'}}>Cristian Trotta</span> · Producido por <span style={{color:'#a8c8db'}}>MW</span></span>
-            <a href="mailto:mabiertolatam@gmail.com" style={{ color:'#2ABFBF', textDecoration:'none', fontFamily:"'Space Mono',monospace", fontSize:'10px', transition:'opacity 0.2s' }}
+            <a href="mailto:manifold.abierto@gmail.com" style={{ color:'#2ABFBF', textDecoration:'none', fontFamily:"'Space Mono',monospace", fontSize:'10px', transition:'opacity 0.2s' }}
               onMouseEnter={e=>e.currentTarget.style.opacity='0.7'}
               onMouseLeave={e=>e.currentTarget.style.opacity='1'}
-            >mabiertolatam@gmail.com</a>
+            >manifold.abierto@gmail.com</a>
           </div>
         </div>
       </div>
