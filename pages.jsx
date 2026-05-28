@@ -233,18 +233,43 @@ function GuestsPage() {
           </div>
         </div>
 
-        {/* Próximos slots */}
+        {/* Referentes confirmados */}
         <div style={{ marginBottom:'48px' }}>
-          <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'10px', color:'#5a8aa8', letterSpacing:'0.18em', textTransform:'uppercase', marginBottom:'20px' }}>Próximos Referentes</div>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(180px,1fr))', gap:'12px' }}>
-            {[2,3,4,5,6,7].map(n=>(
-              <div key={n} style={{
-                height:'110px', border:'1px dashed rgba(42,191,191,0.1)',
-                borderRadius:'8px', background:'rgba(42,191,191,0.015)',
-                display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'8px',
-              }}>
-                <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'13px', color:'rgba(42,191,191,0.2)', letterSpacing:'0.12em' }}>EP {String(n).padStart(2,'0')}</div>
-                <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'9px', color:'rgba(42,191,191,0.15)', letterSpacing:'0.15em' }}>POR CONFIRMAR</div>
+          <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'10px', color:'#2ABFBF', letterSpacing:'0.18em', textTransform:'uppercase', marginBottom:'20px' }}>Referentes Confirmados · Temporada 1</div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(250px,1fr))', gap:'16px' }}>
+            {[
+              { ep:'EP 02', initials:'EM', name:'Embraco', role:'Empresa Brasileña de Motocompresores', org:'Grupo Nidec', country:'Brasil', tags:['Compresores','Inverter'], color:'#55efc4' },
+              { ep:'EP 03', initials:'ML', name:'Marcelo Lima', role:'Sales Manager LATAM', org:'Sanhua International', country:'LATAM', tags:['Componentes','Válvulas'], color:'#74b9ff' },
+              { ep:'EP 04', initials:'LB', name:'Luca Baranzini', role:'Director', org:'K11 America', country:'América', tags:['Mantenimiento','Detección'], color:'#fd9644' },
+              { ep:'EP 05', initials:'HB', name:'Heraldo Bregagnollo', role:'Director Comercial', org:'COEL', country:'Brasil', tags:['Automatización','Control'], color:'#a29bfe' },
+            ].map(g=>(
+              <div key={g.ep} style={{
+                border:'1px solid rgba(42,191,191,0.1)', borderRadius:'10px',
+                background:'#0c1624', padding:'24px',
+                transition:'all 0.22s', cursor:'default',
+              }}
+              onMouseEnter={e=>{ e.currentTarget.style.borderColor='rgba(42,191,191,0.3)'; e.currentTarget.style.background='#111e2e'; e.currentTarget.style.transform='translateY(-3px)'; }}
+              onMouseLeave={e=>{ e.currentTarget.style.borderColor='rgba(42,191,191,0.1)'; e.currentTarget.style.background='#0c1624'; e.currentTarget.style.transform='translateY(0)'; }}
+              >
+                <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:'16px' }}>
+                  <div style={{
+                    width:'56px', height:'56px', borderRadius:'50%',
+                    border:`2px solid ${g.color}66`,
+                    background:`linear-gradient(135deg,${g.color}22,rgba(42,191,191,0.06))`,
+                    display:'flex', alignItems:'center', justifyContent:'center',
+                    fontFamily:"'Syne',sans-serif", fontWeight:800, fontSize:'17px', color:g.color,
+                  }}>{g.initials}</div>
+                  <span style={{ padding:'4px 11px', borderRadius:'20px', background:'rgba(240,122,42,0.1)', border:'1px solid rgba(240,122,42,0.25)', fontFamily:"'Space Mono',monospace", fontSize:'9px', color:'#F07A2A', letterSpacing:'0.1em' }}>{g.ep}</span>
+                </div>
+                <div style={{ fontFamily:"'Syne',sans-serif", fontWeight:700, fontSize:'16px', color:'#eef5fa', marginBottom:'4px' }}>{g.name}</div>
+                <div style={{ fontSize:'12px', color:'#2ABFBF', marginBottom:'2px' }}>{g.role}</div>
+                <div style={{ fontSize:'12px', color:'#a8c8db', marginBottom:'4px' }}>{g.org}</div>
+                <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'9px', color:'#5a8aa8', letterSpacing:'0.08em', marginBottom:'14px' }}>{g.country}</div>
+                <div style={{ display:'flex', gap:'6px', flexWrap:'wrap' }}>
+                  {g.tags.map(t=>(
+                    <span key={t} style={{ padding:'3px 9px', borderRadius:'20px', background:'rgba(42,191,191,0.06)', border:'1px solid rgba(42,191,191,0.13)', fontFamily:"'Space Mono',monospace", fontSize:'9px', color:'#2ABFBF', letterSpacing:'0.06em' }}>{t}</span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
