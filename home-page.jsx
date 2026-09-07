@@ -62,7 +62,7 @@ function HeroSection({ setPage }) {
             width:'7px', height:'7px', borderRadius:'50%', background:'#2ABFBF',
             animation:'pulseRing 2.2s ease-in-out infinite', display:'inline-block', flexShrink:0,
           }}/>
-          Podcast HVAC · LATAM · Primer Episodio Próximamente
+          Podcast HVAC · LATAM · Primer Episodio Ya Disponible
         </div>
 
         {/* Main title */}
@@ -95,8 +95,7 @@ function HeroSection({ setPage }) {
 
         {/* CTA row */}
         <div style={{ display:'flex', gap:'12px', justifyContent:'center', flexWrap:'wrap', marginBottom:'64px' }}>
-          <Button variant="orange" size="lg" href="#">Ver en YouTube</Button>
-          <Button variant="secondary" size="lg" href="#">Apple Podcasts</Button>
+          <Button variant="orange" size="lg" href="https://youtu.be/mpSyOcPyEMo">Ver en YouTube</Button>
           <Button variant="ghost" size="lg" onClick={()=>setPage('episodes')}>Explorar Episodios</Button>
         </div>
 
@@ -144,9 +143,9 @@ function VideoSection() {
     }}>
       <div style={{ maxWidth:'920px', margin:'0 auto' }}>
         <SectionTitle
-          label="Tráiler"
-          title="Conocé el Programa"
-          subtitle="Una conversación profunda sobre HVAC, tecnología y mercado latinoamericano. El podcast que la industria estaba esperando."
+          label="Episodio 01"
+          title="Formación HVAC en Argentina"
+          subtitle="Guillermo Andrade, Director del IARAA: 30 años construyendo el oficio. Mirá el primer programa completo."
         />
         <div style={{
           position:'relative', paddingBottom:'56.25%',
@@ -154,19 +153,14 @@ function VideoSection() {
           border:'1px solid rgba(42,191,191,0.2)',
           boxShadow:'0 0 60px rgba(42,191,191,0.08)',
         }}>
-          <video
-            controls
-            playsInline
-            preload="metadata"
-            style={{
-              position:'absolute', inset:0,
-              width:'100%', height:'100%',
-              objectFit:'cover',
-              background:'#060e1c',
-            }}
-          >
-            <source src="assets/trailer.mp4" type="video/mp4"/>
-          </video>
+          <iframe
+            src="https://www.youtube.com/embed/mpSyOcPyEMo"
+            title="Manifold Abierto — EP 01: Formación HVAC en Argentina"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            style={{ position:'absolute', inset:0, width:'100%', height:'100%', border:0, background:'#060e1c' }}
+          />
         </div>
       </div>
     </section>

@@ -39,7 +39,6 @@ function EpisodesPage() {
     { ep:'EP 01', title:'Formación HVAC en Argentina: 30 años construyendo el oficio', guest:'Guillermo Andrade — IARAA', date:'Temporada 1 · 2026', tag:'Educación', featured:true,
       desc:'El Director del Instituto Argentino de Refrigeración y Aire Acondicionado comparte la historia, metodología y desafíos de formar técnicos desde 1991.',
       img:'assets/guests/guillermo-andrade.png' },
-    { ep:'EP 02', title:'Compresores inverter: el corazón del sistema moderno', guest:'Embraco — Empresa Brasileña de Motocompresores (Nidec)', date:'T1 · 2026', tag:'Tecnología' },
     { ep:'EP 03', title:'Sanhua: la empresa china que está en todos los sistemas', guest:'Marcelo Lima · Sales Manager LATAM, Sanhua International', date:'T1 · 2026', tag:'Componentes' },
     { ep:'EP 04', title:'Fugas de refrigerante: cómo detectarlas y eliminarlas de verdad', guest:'Luca Baranzini · Director, K11 America', date:'T1 · 2026', tag:'Mantenimiento' },
     { ep:'EP 05', title:'COEL: 70 años controlando la temperatura en toda América', guest:'Heraldo Bregagnollo · Director Comercial, COEL', date:'T1 · 2026', tag:'Automatización' },
@@ -50,7 +49,7 @@ function EpisodesPage() {
 
   return (
     <div>
-      <PageHero label="Episodios" title="Todos los Episodios" subtitle="Conversaciones con los referentes del mercado HVAC latinoamericano. Primera temporada en camino."/>
+      <PageHero label="Episodios" title="Todos los Episodios" subtitle="Conversaciones con los referentes del mercado HVAC latinoamericano. Primer episodio ya disponible."/>
       <div style={{ padding:'60px clamp(16px,5vw,80px)', maxWidth:'1100px', margin:'0 auto' }}>
         {/* Search */}
         <div style={{ marginBottom:'48px', display:'flex', gap:'12px', flexWrap:'wrap' }}>
@@ -76,7 +75,7 @@ function EpisodesPage() {
         }}>
           <div style={{ width:'8px', height:'8px', borderRadius:'50%', background:'#2ABFBF', animation:'pulseRing 2s infinite', flexShrink:0 }}/>
           <div style={{ fontSize:'13px', color:'#a8c8db' }}>
-            <strong style={{ color:'#eef5fa', fontWeight:600 }}>5 episodios confirmados</strong> · Temporada 1 · 2026 · Guillermo Andrade, Embraco, Sanhua, K11, COEL
+            <strong style={{ color:'#eef5fa', fontWeight:600 }}>4 episodios confirmados</strong> · Temporada 1 · 2026 · Guillermo Andrade, Sanhua, K11, COEL
           </div>
         </div>
 
@@ -113,7 +112,7 @@ function EpisodesPage() {
                 {/* Right content */}
                 <div style={{ padding:'32px 36px' }}>
                   <div style={{ display:'flex', gap:'8px', flexWrap:'wrap', marginBottom:'16px' }}>
-                    {[['EP 01','rgba(240,122,42,0.12)','rgba(240,122,42,0.3)','#F07A2A'],['EDUCACIÓN','rgba(42,191,191,0.08)','rgba(42,191,191,0.2)','#2ABFBF'],['PRIMER EPISODIO','rgba(42,191,191,0.04)','rgba(42,191,191,0.1)','#5a8aa8']].map(([lbl,bg,border,color])=>(
+                    {[['EP 01','rgba(240,122,42,0.12)','rgba(240,122,42,0.3)','#F07A2A'],['EDUCACIÓN','rgba(42,191,191,0.08)','rgba(42,191,191,0.2)','#2ABFBF'],['YA DISPONIBLE','rgba(42,191,191,0.04)','rgba(42,191,191,0.1)','#5a8aa8']].map(([lbl,bg,border,color])=>(
                       <span key={lbl} style={{ padding:'4px 12px', borderRadius:'20px', background:bg, border:`1px solid ${border}`, fontFamily:"'Space Mono',monospace", fontSize:'9px', color, letterSpacing:'0.12em' }}>{lbl}</span>
                     ))}
                   </div>
@@ -124,7 +123,7 @@ function EpisodesPage() {
                     <div style={{ fontSize:'13px', color:'#a8c8db', lineHeight:1.65 }}>Única institución en CABA habilitada para matriculación en instalación de equipos split · Sedes en CABA, Remedios de Escalada, Escobar, San Miguel y Salto · Más de 15 años en el Programa OZONO.</div>
                   </div>
                   <div style={{ display:'flex', alignItems:'center', gap:'16px', flexWrap:'wrap' }}>
-                    <Button variant="orange">Ver Episodio</Button>
+                    <Button variant="orange" href="https://youtu.be/mpSyOcPyEMo">Ver Episodio</Button>
                     <span style={{ fontFamily:"'Space Mono',monospace", fontSize:'10px', color:'#5a8aa8', letterSpacing:'0.1em' }}>{ep.date}</span>
                   </div>
                 </div>
@@ -229,7 +228,7 @@ function GuestsPage() {
               <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'9px', color:'#2ABFBF', letterSpacing:'0.14em', marginBottom:'6px' }}>SEDES</div>
               <div style={{ fontSize:'13px', color:'#a8c8db' }}>CABA (Av. Directorio 4560) · Remedios de Escalada · Escobar · San Miguel · Salto (Bs. As.)</div>
             </div>
-            <Button variant="orange" href="#">Ver Episodio EP 01</Button>
+            <Button variant="orange" href="https://youtu.be/mpSyOcPyEMo">Ver Episodio EP 01</Button>
           </div>
         </div>
 
@@ -238,7 +237,6 @@ function GuestsPage() {
           <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'10px', color:'#2ABFBF', letterSpacing:'0.18em', textTransform:'uppercase', marginBottom:'20px' }}>Referentes Confirmados · Temporada 1</div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(250px,1fr))', gap:'16px' }}>
             {[
-              { ep:'EP 02', initials:'EM', name:'Embraco', role:'Empresa Brasileña de Motocompresores', org:'Grupo Nidec', country:'Brasil', tags:['Compresores','Inverter'], color:'#55efc4' },
               { ep:'EP 03', initials:'ML', name:'Marcelo Lima', role:'Sales Manager LATAM', org:'Sanhua International', country:'LATAM', tags:['Componentes','Válvulas'], color:'#74b9ff' },
               { ep:'EP 04', initials:'LB', name:'Luca Baranzini', role:'Director', org:'K11 America', country:'América', tags:['Mantenimiento','Detección'], color:'#fd9644' },
               { ep:'EP 05', initials:'HB', name:'Heraldo Bregagnollo', role:'Director Comercial', org:'COEL', country:'Brasil', tags:['Automatización','Control'], color:'#a29bfe' },
@@ -307,8 +305,8 @@ function ResourcesPage() {
   ];
 
   const guestMaterials = [
-    { guest:'Guillermo Andrade', org:'IARAA', ep:'EP 01', title:'Presentación IARAA: 30 años formando técnicos HVAC', type:'PDF', desc:'Metodología de enseñanza, sedes y programas de certificación del Instituto Argentino de Refrigeración y A/C.', coming:false },
-    { guest:'Por confirmar', org:'EP 02', ep:'EP 02', title:'Material del próximo invitado', type:'PDF', desc:'El invitado del episodio 02 compartirá recursos exclusivos para la audiencia de Manifold Abierto.', coming:true },
+    { guest:'Guillermo Andrade', org:'IARAA', ep:'EP 01', title:'Presentación IARAA: 30 años formando técnicos HVAC', type:'WEB', desc:'Metodología de enseñanza, sedes y programas de certificación del Instituto Argentino de Refrigeración y A/C.', coming:false, link:'https://www.iaraa.com.ar/', cta:'Visitar IARAA' },
+    { guest:'Por confirmar', org:'EP 03', ep:'EP 03', title:'Material del próximo invitado', type:'PDF', desc:'El invitado del episodio 03 compartirá recursos exclusivos para la audiencia de Manifold Abierto.', coming:true },
     { guest:'Por confirmar', org:'EP 03', ep:'EP 03', title:'Material del próximo invitado', type:'PDF', desc:'Recursos técnicos aportados por el referente del episodio 03.', coming:true },
   ];
 
@@ -388,7 +386,7 @@ function ResourcesPage() {
                   <div style={{ fontFamily:"'Syne',sans-serif", fontWeight:700, fontSize:'13px', color: g.coming ? '#5a8aa8' : '#eef5fa', lineHeight:1.4 }}>{g.title}</div>
                   <div style={{ color:'#a8c8db', fontSize:'12px', lineHeight:1.6, flex:1 }}>{g.desc}</div>
                   {!g.coming
-                    ? <Button variant="secondary" href="#">Descargar</Button>
+                    ? <Button variant="secondary" href={g.link||'#'}>{g.cta||'Descargar'}</Button>
                     : <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'9px', color:'rgba(42,191,191,0.35)', letterSpacing:'0.15em' }}>PRÓXIMAMENTE</div>
                   }
                 </div>
@@ -514,6 +512,7 @@ function SponsorsPage() {
               { name:'Value',    src:'assets/sponsors/value.png', whiteBg:true },
               { name:'Embraco',  src:'assets/sponsors/embraco.svg' },
               { name:'VHM',      src:'assets/sponsors/vhm.png', whiteBg:true },
+              { name:'HVACPART', src:null },
             ].map(sp=>(
               <div key={sp.name} style={{
                 height:'90px', borderRadius:'10px',

@@ -1,0 +1,131 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.wrap{padding:1.5rem 0;max-width:700px}
+.featured{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-bottom:2rem;display:flex;gap:0}
+.feat-left{width:220px;min-width:220px;background:#0F1923;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem;gap:12px}
+.avatar{width:80px;height:80px;border-radius:50%;background:#1D3040;border:2px solid #E05A1E;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:500;color:#E05A1E;letter-spacing:1px}
+.feat-name{color:#fff;font-size:14px;font-weight:500;text-align:center}
+.feat-role{color:#9AABB8;font-size:12px;text-align:center}
+.feat-loc{color:#556B7A;font-size:11px;text-align:center;font-family:var(--font-mono)}
+.feat-right{padding:1.75rem 2rem;flex:1}
+.tags{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:500;padding:3px 10px;border-radius:99px;border:0.5px solid}
+.tag-ep{background:#2A1A08;color:#E05A1E;border-color:#E05A1E}
+.tag-cat{background:var(--color-background-secondary);color:var(--color-text-secondary);border-color:var(--color-border-secondary)}
+.tag-status-live{background:#0A2218;color:#1D9E75;border-color:#1D9E75}
+.feat-title{font-size:22px;font-weight:500;color:var(--color-text-primary);line-height:1.3;margin-bottom:10px}
+.feat-desc{font-size:14px;color:var(--color-text-secondary);line-height:1.65;margin-bottom:14px}
+.info-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:16px;border:0.5px solid var(--color-border-tertiary)}
+.info-box-label{font-size:10px;color:var(--color-text-tertiary);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px}
+.info-box p{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.season{font-size:12px;color:var(--color-text-tertiary)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:1.5rem}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;display:flex;flex-direction:column}
+.card-thumb{height:90px;background:#0F1923;display:flex;align-items:center;justify-content:center;position:relative}
+.ep-num{font-size:38px;font-weight:500;color:#1D2D3A;font-family:var(--font-mono);letter-spacing:-1px}
+.card-cat-badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:500;padding:3px 8px;border-radius:99px;border:0.5px solid;background:var(--color-background-secondary);color:var(--color-text-secondary);border-color:var(--color-border-secondary)}
+.card-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-ep-label{font-size:11px;color:#E05A1E;font-weight:500;font-family:var(--font-mono)}
+.card-title{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.4}
+.card-guest{font-size:12px;color:var(--color-text-secondary)}
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px}
+.card-season{font-size:11px;color:var(--color-text-tertiary);font-family:var(--font-mono)}
+.soon-badge{font-size:10px;color:var(--color-text-tertiary);background:var(--color-background-secondary);padding:2px 8px;border-radius:99px;border:0.5px solid var(--color-border-tertiary)}
+</style>
+
+<div class="wrap">
+<h2 class="sr-only">Lineup de episodios de Manifold Abierto — Temporada 1 2026</h2>
+
+<div class="featured">
+  <div class="feat-left">
+    <div class="avatar">GA</div>
+    <div class="feat-name">Guillermo Andrade</div>
+    <div class="feat-role">Director · IARAA</div>
+    <div class="feat-loc">Buenos Aires, AR</div>
+  </div>
+  <div class="feat-right">
+    <div class="tags">
+      <span class="tag tag-ep">EP 01</span>
+      <span class="tag tag-cat">Educación</span>
+      <span class="tag tag-status-live">Primer episodio</span>
+    </div>
+    <div class="feat-title">Formación HVAC en Argentina: 30 años construyendo el oficio</div>
+    <div class="feat-desc">El Director del Instituto Argentino de Refrigeración y Aire Acondicionado comparte la historia, metodología y desafíos de formar técnicos desde 1991.</div>
+    <div class="info-box">
+      <div class="info-box-label">Instituto Argentino de Refrigeración y A/C · Desde 1991</div>
+      <p>Única institución en CABA habilitada para matriculación en instalación de equipos split · Sedes en CABA, Remedios de Escalada, Escobar, San Miguel y Salto · Más de 15 años en el Programa OZONO.</p>
+    </div>
+    <div class="season">Temporada 1 · 2026</div>
+  </div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+  <div class="card-thumb">
+    <span class="ep-num">02</span>
+    <span class="card-cat-badge">Tecnología</span>
+  </div>
+  <div class="card-body">
+    <div class="card-ep-label">EP 02</div>
+    <div class="card-title">Compresores inverter: el corazón del sistema moderno</div>
+    <div class="card-guest">Embraco — Empresa Brasileña de Motocompresores (Nidec)</div>
+    <div class="card-footer">
+      <span class="card-season">T1 · 2026</span>
+      <span class="soon-badge">Próximamente</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-thumb">
+    <span class="ep-num">03</span>
+    <span class="card-cat-badge">Componentes</span>
+  </div>
+  <div class="card-body">
+    <div class="card-ep-label">EP 03</div>
+    <div class="card-title">Sanhua: la empresa china que está en todos los sistemas</div>
+    <div class="card-guest">Marcelo Lima · Sales Manager LATAM, Sanhua International</div>
+    <div class="card-footer">
+      <span class="card-season">T1 · 2026</span>
+      <span class="soon-badge">Próximamente</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-thumb">
+    <span class="ep-num">04</span>
+    <span class="card-cat-badge">Mantenimiento</span>
+  </div>
+  <div class="card-body">
+    <div class="card-ep-label">EP 04</div>
+    <div class="card-title">Fugas de refrigerante: cómo detectarlas y eliminarlas de verdad</div>
+    <div class="card-guest">Luca Baranzini · Director, K11 America</div>
+    <div class="card-footer">
+      <span class="card-season">T1 · 2026</span>
+      <span class="soon-badge">Próximamente</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-thumb">
+    <span class="ep-num">05</span>
+    <span class="card-cat-badge">Automatización</span>
+  </div>
+  <div class="card-body">
+    <div class="card-ep-label">EP 05</div>
+    <div class="card-title">COEL: 70 años controlando la temperatura en toda América</div>
+    <div class="card-guest">Heraldo Bregagnollo · Director Comercial, COEL</div>
+    <div class="card-footer">
+      <span class="card-season">T1 · 2026</span>
+      <span class="soon-badge">Próximamente</span>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>

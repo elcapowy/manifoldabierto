@@ -241,7 +241,7 @@ function Footer({ setPage }) {
           </div>
           <div>
             <div style={{ fontFamily:"'Syne',sans-serif", fontWeight:700, fontSize:'10px', letterSpacing:'0.12em', color:'#2ABFBF', marginBottom:'16px' }}>ESCUCHAR EN</div>
-            {[['YouTube','#'],['Apple Podcasts','#']].map(([l,h])=>(
+            {[['YouTube','https://youtu.be/mpSyOcPyEMo']].map(([l,h])=>(
               <a key={l} href={h} style={{ display:'block', color:'#a8c8db', fontSize:'13px', padding:'5px 0', transition:'color 0.2s' }}
                 onMouseEnter={e=>e.currentTarget.style.color='#F07A2A'}
                 onMouseLeave={e=>e.currentTarget.style.color='#a8c8db'}
