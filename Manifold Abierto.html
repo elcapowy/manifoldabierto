@@ -4,6 +4,10 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
+  <!-- ═══ GOOGLE ANALYTICS (GA4) ═══ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TECY19YXH2"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-TECY19YXH2',{anonymize_ip:true});window.maTrack=function(name,params){if(window.gtag)gtag('event',name,params||{})};</script>
+
   <!-- ═══ PRIMARY META ═══ -->
   <title>Manifold Abierto — Podcast HVAC para América Latina | Conducido por Cristian Trotta</title>
   <meta name="description" content="El podcast de referencia para profesionales del sector HVAC en América Latina. Conversaciones con los referentes del mercado: técnicos, ingenieros, instaladores y fabricantes. Conducido por Cristian Trotta, producido por MW."/>
@@ -270,5 +274,8 @@
 
     ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
   </script>
+
+  <!-- Eventos automáticos: clicks en links salientes (YouTube, sponsors, IARAA) -->
+  <script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="http"]');if(!a)return;var h=a.getAttribute('href')||'';if(h.indexOf(location.host)>-1)return;window.maTrack&&window.maTrack('click_saliente',{link_url:h,link_text:(a.textContent||'').trim().slice(0,80)})},true);</script>
 </body>
 </html>
