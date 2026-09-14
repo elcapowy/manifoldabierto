@@ -39,9 +39,9 @@ function EpisodesPage() {
     { ep:'EP 01', title:'Formación HVAC en Argentina: 30 años construyendo el oficio', guest:'Guillermo Andrade — IARAA', date:'Temporada 1 · 2026', tag:'Educación', featured:true,
       desc:'El Director del Instituto Argentino de Refrigeración y Aire Acondicionado comparte la historia, metodología y desafíos de formar técnicos desde 1991.',
       img:'assets/guests/guillermo-andrade.png' },
-    { ep:'EP 03', title:'Sanhua: la empresa china que está en todos los sistemas', guest:'Marcelo Lima · Sales Manager LATAM, Sanhua International', date:'T1 · 2026', tag:'Componentes' },
-    { ep:'EP 04', title:'Fugas de refrigerante: cómo detectarlas y eliminarlas de verdad', guest:'Luca Baranzini · Director, K11 America', date:'T1 · 2026', tag:'Mantenimiento' },
-    { ep:'EP 05', title:'COEL: 70 años controlando la temperatura en toda América', guest:'Heraldo Bregagnollo · Director Comercial, COEL', date:'T1 · 2026', tag:'Automatización' },
+    { ep:'EP 02', title:'Sanhua: la empresa china que está en todos los sistemas', guest:'Marcelo Lima · Sales Manager LATAM, Sanhua International', date:'T1 · 2026', tag:'Componentes' },
+    { ep:'EP 03', title:'Fugas de refrigerante: cómo detectarlas y eliminarlas de verdad', guest:'Luca Baranzini · Director, K11 America', date:'T1 · 2026', tag:'Mantenimiento' },
+    { ep:'EP 04', title:'COEL: 70 años controlando la temperatura en toda América', guest:'Heraldo Bregagnollo · Director Comercial, COEL', date:'T1 · 2026', tag:'Automatización' },
   ];
   const filtered = teasers.filter(t =>
     !q || t.title.toLowerCase().includes(q.toLowerCase()) || t.tag.toLowerCase().includes(q.toLowerCase())
@@ -237,9 +237,9 @@ function GuestsPage() {
           <div style={{ fontFamily:"'Space Mono',monospace", fontSize:'10px', color:'#2ABFBF', letterSpacing:'0.18em', textTransform:'uppercase', marginBottom:'20px' }}>Referentes Confirmados · Temporada 1</div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(250px,1fr))', gap:'16px' }}>
             {[
-              { ep:'EP 03', initials:'ML', name:'Marcelo Lima', role:'Sales Manager LATAM', org:'Sanhua International', country:'LATAM', tags:['Componentes','Válvulas'], color:'#74b9ff' },
-              { ep:'EP 04', initials:'LB', name:'Luca Baranzini', role:'Director', org:'K11 America', country:'América', tags:['Mantenimiento','Detección'], color:'#fd9644' },
-              { ep:'EP 05', initials:'HB', name:'Heraldo Bregagnollo', role:'Director Comercial', org:'COEL', country:'Brasil', tags:['Automatización','Control'], color:'#a29bfe' },
+              { ep:'EP 02', initials:'ML', name:'Marcelo Lima', role:'Sales Manager LATAM', org:'Sanhua International', country:'LATAM', tags:['Componentes','Válvulas'], color:'#74b9ff' },
+              { ep:'EP 03', initials:'LB', name:'Luca Baranzini', role:'Director', org:'K11 America', country:'América', tags:['Mantenimiento','Detección'], color:'#fd9644' },
+              { ep:'EP 04', initials:'HB', name:'Heraldo Bregagnollo', role:'Director Comercial', org:'COEL', country:'Brasil', tags:['Automatización','Control'], color:'#a29bfe' },
             ].map(g=>(
               <div key={g.ep} style={{
                 border:'1px solid rgba(42,191,191,0.1)', borderRadius:'10px',
@@ -306,8 +306,8 @@ function ResourcesPage() {
 
   const guestMaterials = [
     { guest:'Guillermo Andrade', org:'IARAA', ep:'EP 01', title:'Presentación IARAA: 30 años formando técnicos HVAC', type:'WEB', desc:'Metodología de enseñanza, sedes y programas de certificación del Instituto Argentino de Refrigeración y A/C.', coming:false, link:'https://www.iaraa.com.ar/', cta:'Visitar IARAA' },
-    { guest:'Por confirmar', org:'EP 03', ep:'EP 03', title:'Material del próximo invitado', type:'PDF', desc:'El invitado del episodio 03 compartirá recursos exclusivos para la audiencia de Manifold Abierto.', coming:true },
-    { guest:'Por confirmar', org:'EP 03', ep:'EP 03', title:'Material del próximo invitado', type:'PDF', desc:'Recursos técnicos aportados por el referente del episodio 03.', coming:true },
+    { guest:'Por confirmar', org:'EP 02', ep:'EP 02', title:'Material del próximo invitado', type:'PDF', desc:'El invitado del episodio 02 compartirá recursos exclusivos para la audiencia de Manifold Abierto.', coming:true },
+    { guest:'Por confirmar', org:'EP 02', ep:'EP 02', title:'Material del próximo invitado', type:'PDF', desc:'Recursos técnicos aportados por el referente del episodio 02.', coming:true },
   ];
 
   const glossary = [
